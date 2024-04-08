@@ -1,0 +1,987 @@
+[
+    {
+        "id": "072d3eea937de2b4",
+        "type": "tab",
+        "label": "Do An",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a885c90773736f9d",
+        "type": "ui_gauge",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "group": "c99a4fcb4dc36108",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Current",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 380,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "c6212e9909a4f9e8",
+        "type": "ui_switch",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "label": "Switch",
+        "tooltip": "",
+        "group": "1d539d6d90c5940f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "on",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "off",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 230,
+        "y": 240,
+        "wires": [
+            [
+                "fed895a728222bbb",
+                "0aa0c01c6f823dab",
+                "520af4fc0d58211d",
+                "fc2e86a08166e550",
+                "6647369bd1c75d71"
+            ]
+        ]
+    },
+    {
+        "id": "3995561fd1022698",
+        "type": "ui_chart",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "group": "c99a4fcb4dc36108",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "label": "Line chart of temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 430,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fed895a728222bbb",
+        "type": "mqtt out",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "topic": "21126059vp/congtac",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "00d42092505c19f9",
+        "x": 480,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "6f84a63b7baafbfb",
+        "type": "mqtt in",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "topic": "21126059vp/temp",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "00d42092505c19f9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 760,
+        "wires": [
+            [
+                "a885c90773736f9d",
+                "3995561fd1022698",
+                "fb5b679da547857e",
+                "59ce255625993234"
+            ]
+        ]
+    },
+    {
+        "id": "0aa0c01c6f823dab",
+        "type": "debug",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1250,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "87d892e9dd7af4d9",
+        "type": "ui_gauge",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "group": "0b77eecc8fe0dda0",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Curent",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 330,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "05bd6f3b5cf5c91c",
+        "type": "mqtt in",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "topic": "21126059vp/humid",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "00d42092505c19f9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 980,
+        "wires": [
+            [
+                "87d892e9dd7af4d9",
+                "7bc320a748a034c4",
+                "6dea5cfdf99eee48"
+            ]
+        ]
+    },
+    {
+        "id": "7bc320a748a034c4",
+        "type": "ui_chart",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "group": "0b77eecc8fe0dda0",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Line chart of humidity",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 380,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "13479e91bba0502b",
+        "type": "ui_template",
+        "z": "072d3eea937de2b4",
+        "group": "eb3f0a3e7cbf31d9",
+        "name": "Lịch sử",
+        "order": 9,
+        "width": "6",
+        "height": "10",
+        "format": "<ul>\n<li ng-repeat=\"x in msg.payload\">\n    <font color=\"red\">{{\"The air conditioners and humidifiers are\"}}</font>\n    <ul>\n        <li>{{x.payload}}</li>\n        \n\n\n\n    </ul>\n    <!-- Current Date and Time -->\n        \n        <p>at <span id=\"datetime\"></span></p>\n        \n        <script>\n        var dt = new Date();\n        document.getElementById(\"datetime\").innerHTML = ((\"0\"+dt.getDate()).slice(-2)) +\".\"+ ((\"0\"+(dt.getMonth()+1)).slice(-2)) +\".\"+ (dt.getFullYear()) +\" \"+ ((\"0\"+dt.getHours()).slice(-2)) +\":\"+ ((\"0\"+dt.getMinutes()).slice(-2));\n        </script>\n</li>\n</ul>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 800,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "520af4fc0d58211d",
+        "type": "function",
+        "z": "072d3eea937de2b4",
+        "name": "Lịch sử bật tắt",
+        "func": "var dashboardLog = flow.get('dashboardLog') || [];\n\ndashboardLog.push(msg);\nif(dashboardLog.length > 20){\n    dashboardLog.shift();\n    dashboardLog.length = 20;\n}\n\nflow.set('dashboardLog', dashboardLog);\n\nmsg = {}\nmsg.payload = dashboardLog;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 120,
+        "wires": [
+            [
+                "13479e91bba0502b"
+            ]
+        ]
+    },
+    {
+        "id": "6dea5cfdf99eee48",
+        "type": "debug",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "6647369bd1c75d71",
+        "type": "switch",
+        "z": "072d3eea937de2b4",
+        "name": "Trạng thái",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 460,
+        "y": 200,
+        "wires": [
+            [
+                "20f66ff63d17220b"
+            ],
+            [
+                "4cfb3e6d637ad6af"
+            ]
+        ]
+    },
+    {
+        "id": "20f66ff63d17220b",
+        "type": "function",
+        "z": "072d3eea937de2b4",
+        "name": "Gửi on đến IFTTT",
+        "func": "msg.event = \"myservice\";\nmsg.payload = {value1: \"on\"};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 160,
+        "wires": [
+            [
+                "4357be95b65fb324"
+            ]
+        ]
+    },
+    {
+        "id": "4357be95b65fb324",
+        "type": "http request",
+        "z": "072d3eea937de2b4",
+        "name": "Gửi on/off đến IFTTT qua http",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://maker.ifttt.com/trigger/myservice/with/key/skFm0H1r27Yy1g2C8tx5u",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1010,
+        "y": 200,
+        "wires": [
+            [
+                "c55e299dfcaca9d0"
+            ]
+        ]
+    },
+    {
+        "id": "4cfb3e6d637ad6af",
+        "type": "function",
+        "z": "072d3eea937de2b4",
+        "name": "Gửi off đến IFTTT",
+        "func": "msg.event = \"myservice\";\nmsg.payload = {value1: \"off\"};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 240,
+        "wires": [
+            [
+                "4357be95b65fb324"
+            ]
+        ]
+    },
+    {
+        "id": "c55e299dfcaca9d0",
+        "type": "debug",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1270,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "27010d860ccc644d",
+        "type": "inject",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "900",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 440,
+        "wires": [
+            [
+                "7c8c1d66421bdbef"
+            ]
+        ]
+    },
+    {
+        "id": "e815eb2ff51934f0",
+        "type": "function",
+        "z": "072d3eea937de2b4",
+        "name": "Value đến IFTTT",
+        "func": "a = flow.get(\"a\");\nmsg.event = \"send_temp\";\nmsg.payload = {\"value1\": +a, \"value2\": \"hot\", \"value3\": \"on\"};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 540,
+        "wires": [
+            [
+                "a546d817828f400f"
+            ]
+        ]
+    },
+    {
+        "id": "a546d817828f400f",
+        "type": "http request",
+        "z": "072d3eea937de2b4",
+        "name": "Gửi đến IFTTT",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://maker.ifttt.com/trigger/send_temp/with/key/skFm0H1r27Yy1g2C8tx5u",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 1080,
+        "y": 500,
+        "wires": [
+            [
+                "8a652d826abe9481"
+            ]
+        ]
+    },
+    {
+        "id": "8a652d826abe9481",
+        "type": "debug",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1250,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "888603133501b972",
+        "type": "function",
+        "z": "072d3eea937de2b4",
+        "name": "Lưu nhiệt độ vào biến a",
+        "func": "a = msg.payload;\n\nflow.set(\"a\", a);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb5b679da547857e",
+        "type": "json",
+        "z": "072d3eea937de2b4",
+        "name": "Chuyển string thành number",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 440,
+        "y": 680,
+        "wires": [
+            [
+                "888603133501b972"
+            ]
+        ]
+    },
+    {
+        "id": "a4d23e08811506c8",
+        "type": "function",
+        "z": "072d3eea937de2b4",
+        "name": "Lưu lại giá trị bật tắt của công tắc",
+        "func": "b = msg.payload;\n\nflow.set(\"b\", b);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 320,
+        "wires": [
+            [
+                "0aa0c01c6f823dab"
+            ]
+        ]
+    },
+    {
+        "id": "fc2e86a08166e550",
+        "type": "change",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "on",
+                "fromt": "str",
+                "to": "1",
+                "tot": "num"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "off",
+                "fromt": "str",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 320,
+        "wires": [
+            [
+                "a4d23e08811506c8"
+            ]
+        ]
+    },
+    {
+        "id": "8c8c8c0156b7f54a",
+        "type": "switch",
+        "z": "072d3eea937de2b4",
+        "name": "Trạng thái",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 460,
+        "y": 500,
+        "wires": [
+            [
+                "6dbee468ca3b4dd7"
+            ],
+            [
+                "7eb2f03fe3970d82"
+            ]
+        ]
+    },
+    {
+        "id": "6dbee468ca3b4dd7",
+        "type": "function",
+        "z": "072d3eea937de2b4",
+        "name": "Check nhiệt độ",
+        "func": "a = flow.get(\"a\");\nb = flow.get(\"b\");\nif(a < 27 && b == 1){\n    msg.payload = \"off\";\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 460,
+        "wires": [
+            [
+                "c6212e9909a4f9e8",
+                "d3cfe1e9ddb5b10f"
+            ]
+        ]
+    },
+    {
+        "id": "7eb2f03fe3970d82",
+        "type": "function",
+        "z": "072d3eea937de2b4",
+        "name": "Check nhiệt độ",
+        "func": "a = flow.get(\"a\");\nb = flow.get(\"b\");\nif(a > 27 && b == 0){\n    msg.payload = \"on\";\n    return msg;\n    }",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 540,
+        "wires": [
+            [
+                "c6212e9909a4f9e8",
+                "e815eb2ff51934f0"
+            ]
+        ]
+    },
+    {
+        "id": "7cd309e327c1f5e3",
+        "type": "mqtt in",
+        "z": "072d3eea937de2b4",
+        "name": "State",
+        "topic": "21126059vp/trangthai",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "00d42092505c19f9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 500,
+        "wires": [
+            [
+                "7c8c1d66421bdbef"
+            ]
+        ]
+    },
+    {
+        "id": "7c8c1d66421bdbef",
+        "type": "delay",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 320,
+        "y": 500,
+        "wires": [
+            [
+                "8c8c8c0156b7f54a"
+            ]
+        ]
+    },
+    {
+        "id": "d3cfe1e9ddb5b10f",
+        "type": "function",
+        "z": "072d3eea937de2b4",
+        "name": "Value đến IFTTT",
+        "func": "a = flow.get(\"a\");\nmsg.event = \"send_temp\";\nmsg.payload = {\"value1\": +a, \"value2\": \"cold\", \"value3\": \"off\"};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 460,
+        "wires": [
+            [
+                "a546d817828f400f"
+            ]
+        ]
+    },
+    {
+        "id": "fe98a61647b916d6",
+        "type": "ui_template",
+        "z": "072d3eea937de2b4",
+        "group": "c982fbb8.1deb38",
+        "name": "Clock Toolbar",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "format": "<script id=\"titleScript\" type=\"text/javascript\">\n\n$(function() {\n    if($('.md-toolbar-tools').length != 0){\n        loadClock();\n    }else setTimeout(loadClock, 500)\n});\n\nfunction loadClock(){\n    $('#clock').remove();\n    var toolbar = $('.md-toolbar-tools');\n    \n    var div = $('<div/>');\n    var p = $('<p/ id=\"clock\">');\n    \n    div.append(p);\n    div[0].style.margin = '5px 5px 5px auto';\n    toolbar.append(div);\n\n    function displayTitle(lh) {\n        p.text(lh); \n    }\n    \n    function upTime() {\n        var d = new Date();\n        p.text(d.toLocaleString());\n    }\n\n    if(document.clockInterval){ \n            clearInterval(document.clockInterval);\n            document.clockInterval = null;\n    }\n        \n    document.clockInterval = setInterval(upTime,1000);\n}\n\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "global",
+        "className": "",
+        "x": 100,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "313925bfdae515cb",
+        "type": "ngrok",
+        "z": "072d3eea937de2b4",
+        "buttonState": true,
+        "port": "",
+        "portType": "node-red",
+        "host": "",
+        "hostType": "localhost",
+        "creds": "619633ea6a67a504",
+        "region": "",
+        "regionType": "ap",
+        "proto": "http",
+        "bind_tls": "both",
+        "bind_tlsType": "both",
+        "subdomain": "",
+        "subdomainType": "none",
+        "auth": "",
+        "authType": "none",
+        "hostHeader": "",
+        "hostHeaderType": "none",
+        "name": "",
+        "inputtype": "button",
+        "inputs": 0,
+        "x": 90,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "59ce255625993234",
+        "type": "switch",
+        "z": "072d3eea937de2b4",
+        "name": "Check có lỗi dht?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "nan",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 410,
+        "y": 860,
+        "wires": [
+            [
+                "5a6d08fdfa91525a"
+            ]
+        ]
+    },
+    {
+        "id": "5a6d08fdfa91525a",
+        "type": "function",
+        "z": "072d3eea937de2b4",
+        "name": "Value đến IFTTT",
+        "func": "\nmsg.event = \"send_temp\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 860,
+        "wires": [
+            [
+                "711749d278625f23"
+            ]
+        ]
+    },
+    {
+        "id": "711749d278625f23",
+        "type": "http request",
+        "z": "072d3eea937de2b4",
+        "name": "Gửi đến IFTTT",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://maker.ifttt.com/trigger/dht_error/with/key/skFm0H1r27Yy1g2C8tx5u",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 860,
+        "y": 860,
+        "wires": [
+            [
+                "1b51064d14481f89"
+            ]
+        ]
+    },
+    {
+        "id": "1b51064d14481f89",
+        "type": "debug",
+        "z": "072d3eea937de2b4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "c99a4fcb4dc36108",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "1680539c7b84cc69",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1d539d6d90c5940f",
+        "type": "ui_group",
+        "name": "Control Center",
+        "tab": "1680539c7b84cc69",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "00d42092505c19f9",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0b77eecc8fe0dda0",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "1680539c7b84cc69",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "eb3f0a3e7cbf31d9",
+        "type": "ui_group",
+        "name": "History",
+        "tab": "1680539c7b84cc69",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c982fbb8.1deb38",
+        "type": "ui_group",
+        "name": "hidden_group",
+        "tab": "7c447e96.4b96a",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "619633ea6a67a504",
+        "type": "ngrokauth",
+        "name": ""
+    },
+    {
+        "id": "1680539c7b84cc69",
+        "type": "ui_tab",
+        "name": "Air conditioner and humidifer control",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "7c447e96.4b96a",
+        "type": "ui_tab",
+        "name": "Zooland Sys",
+        "icon": "home",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
